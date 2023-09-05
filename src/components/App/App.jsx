@@ -9,6 +9,11 @@ function App() {
         </header>
         <p>Gallery goes here</p>
         <img src="images/goat_small.jpg"/>
+        <img src="images/concert.jpeg"/>
+        <img src="images/mn_vikings.jpeg"/>
+        <img src="images/parlour.jpeg"/>
+        <img src="images/state_fair.jpeg"/>
+        <img src="images/sunset.jpeg"/>
       </div>
     );
 }
