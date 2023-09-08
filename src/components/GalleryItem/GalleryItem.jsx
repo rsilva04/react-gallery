@@ -7,9 +7,12 @@ function GalleryItems(item, setlikes) {
 
   let [image , setImage] = useState(true)
 
-  function toggleImg({
-    
-  })
+  function toggleImg(){
+    setImage(false)
+    setTimeout(() => {
+      setIm
+    })
+  }
 
   return (
     <div>
