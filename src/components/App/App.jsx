@@ -3,17 +3,30 @@ import './App.css';
 import axios from 'axios';
 import GalleryList from '../GalleryList/GalleryList';
 
+//imports I made
+import { useEffect, useState } from 'react';
+
+
 function App() {
 
-  axios.get('/gallery')
-  .then(response => {
-    // Handle the successful response here
-    console.log('Data received:', response.data);
-  })
-  .catch(error => {
-    // Handle any errors that occurred during the request
-    console.error('Error:', error);
-  });
+  let [galleryList, setGalleryList] = useState([]);
+
+  useEffect(() => {
+    fetchGallery();
+  }, [])
+
+  const fetchGallery = () => {
+    axios.get('/gallery')
+    .then(response => {
+      // Handle the successful response here
+      console.log('Data received:', response.data);
+    })
+    .catch(error => {
+      // Handle any errors that occurred during the request
+      console.error('Error:', error);
+    });
+  }
+
 
 
     return (

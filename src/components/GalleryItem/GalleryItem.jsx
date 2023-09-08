@@ -23,16 +23,9 @@ function GalleryItems(item, setlikes) {
 
       <p>{item.likes}people like this</p>
         <button onClick = {() => setlikes(item.id)}>I like this</button>
-
       </div>
-
-
-
       </>
-
-
-
-    )
+    );
   }
 
   return (
@@ -46,5 +39,4 @@ function GalleryItems(item, setlikes) {
     </div>
   );
 }
-
 export default GalleryItems;
