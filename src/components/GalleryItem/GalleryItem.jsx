@@ -5,13 +5,34 @@ import GalleryList from '../GalleryList/GalleryList';
 function GalleryItems(item, setlikes) {
   const { GalleryItems } = props; // Access galleryData prop
 
-  let [image , setImage] = useState(true)
+  let [image, setImage] = useState(true)
 
-  function toggleImg(){
+  function toggleImg() {
     setImage(false)
     setTimeout(() => {
-      setIm
-    })
+      setImage(true);
+    }, 4000)
+  }
+
+  if (image) {
+
+    return (
+      <>
+      <div>
+      <img className="ImageRouter" onClick = {() => toggleImg()} key= {item.id} scr={item.path}></img>
+
+      <p>{item.likes}people like this</p>
+        <button onClick = ></button>
+
+      </div>
+
+
+
+      </>
+
+
+
+    )
   }
 
   return (
