@@ -11,6 +11,7 @@ function App() {
 
   let [galleryList, setGalleryList] = useState([]);
 
+
   useEffect(() => {
     fetchGallery();
   }, [])
@@ -20,11 +21,23 @@ function App() {
     .then(response => {
       // Handle the successful response here
       console.log('Data received:', response.data);
+      setGalleryList(response.data);
     })
     .catch(error => {
       // Handle any errors that occurred during the request
       console.error('Error:', error);
     });
+  }
+
+  const insertLikes = (id) => {
+    axios.put(`/gallery/likes/${id}`)  
+    .then(response => {
+      console.log('insert likes', response);
+      fetchGallery();
+    })
+    .catch(error => {
+      console.log(error);
+    })
   }
 
 
@@ -35,7 +48,9 @@ function App() {
           <h1 className="App-title">Gallery of My Life</h1>
         </header>
         <p>Gallery goes here</p>
-       <GalleryList />
+        
+       <GalleryList galleryList={{galleryList}}
+       addLikes={insertLikes} />
       </div>
     );
 }
