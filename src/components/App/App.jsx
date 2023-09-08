@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import axios from 'axios';
-import GalleryList from '../GalleryList/GalleryList';
+import GalleryList from '../GalleryList/GalleryList.jsx';
 
 //imports I made
 import { useEffect, useState } from 'react';
@@ -49,7 +49,8 @@ function App() {
         </header>
         <p>Gallery goes here</p>
         
-       <GalleryList galleryList={{galleryList}}
+       <GalleryList 
+       galleryList={{galleryList}}
        addLikes={insertLikes} />
       </div>
     );

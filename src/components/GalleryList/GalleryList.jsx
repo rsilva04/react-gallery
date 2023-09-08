@@ -2,7 +2,7 @@ import React from 'react';
 
 import GalleryItem from '../GalleryItem/GalleryItem';
 
-function GalleryList({galleryList, addLikes}) {
+function GalleryList(props) {
  
     // const galleryItems = [
     //     { id: 1, path: 'images/goat_small.jpg', description: 'Photo of a goat taken at Glacier National Park.', likes: 0 },

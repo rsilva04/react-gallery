@@ -1,42 +1,45 @@
 import React from 'react';
-import galleryItems from '../../../server/modules/gallery.data';
-import GalleryList from '../GalleryList/GalleryList';
+import { useState } from 'react';
+import axios from 'axios';
 
-function GalleryItems(item, setlikes) {
-  const { GalleryItems } = props; // Access galleryData prop
+function GalleryItems(props) {
 
-  let [image, setImage] = useState(true)
+  const [image, setImage] = useState(false)
 
-  function toggleImg() {
-    setImage(false)
-    setTimeout(() => {
-      setImage(true);
-    }, 4000)
+  const toggleImg = () => {
+    setImage(!image)
   }
-
-  if (image) {
-
-    return (
-      <>
-      <div>
-      <img className="ImageRouter" onClick = {() => toggleImg()} key= {item.id} scr={item.path}></img>
-
-      <p>{item.likes}people like this</p>
-        <button onClick = {() => setlikes(item.id)}>I like this</button>
-      </div>
-      </>
-    );
-  }
-
-  return (
-    <div>
-      <h2>Gallery List</h2>
-      <ul>
-        {galleryItems.map((id, description) => (
-          <li key={id}>{item.description}</li> // Display gallery data
-        ))}
-      </ul>
-    </div>
-  );
 }
+
+const likeImg = (id) => {
+  axios.put(`/gallery/like/${id}`)
+    .then((response) => {
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+}
+return (
+  <div class="gallery-image" onClick={() => toggleImg()}>
+    <img src={props.image.path} width="400" height="400" />
+    {descriptionDisplay ? <p class="image-description">{props.image.description}</p> : null}
+    <button class="like-button" onClick={() => likeImg(props.image.id)}>&#128151;</button>
+  </div>
+);
+
+
+
+
+
+//   return (
+//     <div>
+//       <h2>Gallery List</h2>
+//       <ul>
+//         {galleryItems.map((id, description) => (
+//           <li key={id}>{item.description}</li> // Display gallery data
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// }
 export default GalleryItems;
