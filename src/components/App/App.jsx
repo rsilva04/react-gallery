@@ -29,31 +29,16 @@ function App() {
     });
   }
 
-  const insertLikes = (id) => {
-    axios.put(`/gallery/likes/${id}`)  
-    .then(response => {
-      console.log('insert likes', response);
-      fetchGallery();
-    })
-    .catch(error => {
-      console.log(error);
-    })
-  }
 
 
-
-    return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Gallery of My Life</h1>
-        </header>
-        <p>Gallery goes here</p>
-        
-       <GalleryList 
-       galleryList={{galleryList}}
-       addLikes={insertLikes} />
-      </div>
-    );
+  return (
+    <div className="App">
+      <header className="App-header">
+        <h1 className="App-title">My Gallery</h1>
+      </header>
+      <GalleryList list={galleryList} />
+    </div>
+  );
 }
 
 export default App;
