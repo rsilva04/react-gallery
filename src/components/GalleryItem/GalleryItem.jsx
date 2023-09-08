@@ -23,23 +23,11 @@ return (
   <div class="gallery-image" onClick={() => toggleImg()}>
     <img src={props.image.path} width="400" height="400" />
     {image ? <p class="image-description">{props.image.description}</p> : null}
-    <button class="like-button" onClick={() => likeImg(props.image.id)}>&#128151;</button>
+    <button class="like-button" onClick={() => likeImg(props.image.id)}>❤️</button>
   </div>
 );
 
 }
 
 
-
-//   return (
-//     <div>
-//       <h2>Gallery List</h2>
-//       <ul>
-//         {galleryItems.map((id, description) => (
-//           <li key={id}>{item.description}</li> // Display gallery data
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// }
 export default GalleryItem;
