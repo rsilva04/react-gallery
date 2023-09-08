@@ -22,7 +22,7 @@ function GalleryItems(item, setlikes) {
       <img className="ImageRouter" onClick = {() => toggleImg()} key= {item.id} scr={item.path}></img>
 
       <p>{item.likes}people like this</p>
-        <button onClick = ></button>
+        <button onClick = {() => setlikes(item.id)}>I like this</button>
 
       </div>
 
