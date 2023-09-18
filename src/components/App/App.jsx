@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import axios from 'axios';
 import GalleryList from '../GalleryList/GalleryList.jsx';
+import fetchGallery from './functions/getGallary';
 
 //imports I made
 import { useEffect, useState } from 'react';
@@ -11,25 +12,13 @@ function App() {
 
   let [galleryList, setGalleryList] = useState([]);
 
-
-  useEffect(() => {
-    fetchGallery();
-  }, [])
-
-  const fetchGallery = () => {
-    axios.get('/gallery')
-    .then(response => {
-      // Handle the successful response here
-      console.log('Data received:', response.data);
-      setGalleryList(response.data);
-    })
-    .catch(error => {
-      // Handle any errors that occurred during the request
-      console.error('Error:', error);
-    });
+  const getData = async () => {
+    setGalleryList(await fetchGallery())
   }
 
-
+  useEffect(() => {
+    getData()
+  }, [fetchGallery])
 
   return (
     <div className="App">
